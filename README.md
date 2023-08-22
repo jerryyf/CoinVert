@@ -1,6 +1,6 @@
-# Crypto Price Conversion Tool
+# Coinvert
 
-This tool allows you to convert prices between different cryptocurrencies and fiat currencies. It is powered by the CoinGecko public API.
+This tool allows you to convert prices between different cryptocurrencies and fiat or other cryptocurrencies. It is powered by the CoinGecko public API.
 
 ## Features
 
@@ -14,10 +14,10 @@ This tool allows you to convert prices between different cryptocurrencies and fi
 
 Clone this repo:
 
-    $ git clone ...
+    $ git clone https://github.com/jerryyf/coinvert.git
 
 Run the app from `src` directory:
 
     $ cd src
-    $ python3 app.py <coin> <currency> <amount>
+    $ python3 app.py
 

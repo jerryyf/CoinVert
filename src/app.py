@@ -1,19 +1,33 @@
 import fetcher
-import sys
 
 def main():
     """
     Main script to run on the command line.
     """
-    print(f"API status: {fetcher.ping()}")
-    if len(sys.argv) == 4:
-        coin = str(sys.argv[1])
-        vs = str(sys.argv[2])
-        amount = float(sys.argv[3])
-        print(f"${fetcher.convert(coin, vs, amount)} {vs}")
+    print("Checking API status...")
+    if fetcher.ping() == 200:
+        print("OK")
+        coin:str
+        vs:str
+        amount:float
 
+        coin = str(input("Enter the coin to convert from, e.g. 'bitcoin':\n"))
+        # TODO error handling: check against coinlist
+        vs = str(input("Enter the coin/currency to convert to e.g. 'usd':\n"))
+        # TODO error handling: check against vs_currencies
+
+        while True:
+            try:
+                amount = float(input("Enter the amount to convert:\n"))
+                break
+            except ValueError:
+                print("Please enter a numerical value.")
+                continue
+
+        print(f"{amount} {coin} = {fetcher.convert(coin, vs, amount)} {vs}")
+    
     else:
-        print("Usage:\npython app.py <coin> <currency> <amount>")
+        print(f"API error {fetcher.ping()}")
 
 if __name__ == "__main__":
     main()

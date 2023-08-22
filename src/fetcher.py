@@ -13,7 +13,22 @@ def ping():
 
     except Exception:
         print(Exception.__traceback__)
-        
+
+def get_coinlist():
+    """
+    Returns list of valid coins and symbols from /coins/list
+    """
+    response = requests.get(f"{base_url}/coins/list")
+    coinlist = response.json()
+    # TODO
+
+def get_vs_currencies():
+    """
+    Returns list of valid and symbols from /simple/supported_vs_currencies
+    """
+    response = requests.get(f"{base_url}/simple/supported_vs_currencies")
+    vs_currencies = response.json()
+    # TODO
 
 def get_price(coin:str, vs:str) -> int:
     """
